@@ -56,8 +56,7 @@
         "default": "#222"
       }
     ]
-  }
-  ,
+  },
   {
     "name": "Language",
     "elements": [
@@ -88,6 +87,72 @@
         "id": "language_library",
         "label": "Library Text",
         "default": "My Library"
+      }
+    ]
+  },
+  {
+    "name": "Password Recovery",
+    "elements": [
+      {
+        "type": "header",
+        "content": "Password Recovery"
+      },
+      {
+        "type": "text",
+        "id": "recover_text",
+        "label": "Recover Text",
+        "default": "Recover Password"
+      },
+      {
+        "type": "text",
+        "id": "email_text",
+        "label": "Email Text",
+        "default": "Email"
+      },
+      {
+        "type": "text",
+        "id": "recovery_text",
+        "label": "Recovery Text",
+        "default": "Send Recovery Info"
+      },
+      {
+        "type": "text",
+        "id": "login_text",
+        "label": "Login Text",
+        "default": "Login"
+      }
+    ]
+  },
+  {
+    "name": "Password Reset",
+    "elements": [
+      {
+        "type": "header",
+        "content": "Password Reset"
+      },
+      {
+        "type": "text",
+        "id": "reset_text",
+        "label": "Reset Text",
+        "default": "Create new password"
+      },
+      {
+        "type": "text",
+        "id": "new_password",
+        "label": "New Password Text",
+        "default": "Enter New Password"
+      },
+      {
+        "type": "text",
+        "id": "confirm_password",
+        "label": "Confirm Password Text",
+        "default": "Confirm Password"
+      },
+      {
+        "type": "text",
+        "id": "reset_btn",
+        "label": "Reset Button Text",
+        "default": "Submit"
       }
     ]
   }
