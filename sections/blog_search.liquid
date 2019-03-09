@@ -1,0 +1,21 @@
+<div class="section">
+  <div class="container">
+    <form action="{{ current_site.blog_search_url }}" method="get" role="search">
+      <input type="search" name="q" placeholder="{{ section.settings.search }}" kjb-settings-id="{{ 'search' | settings_id: section: section }}">
+    </form>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Search",
+    "elements": [
+      {
+        "type": "text",
+        "id": "search",
+        "label": "Search Text",
+        "default": "Search"
+      }
+    ]
+  }
+{% endschema %}

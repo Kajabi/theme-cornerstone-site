@@ -1,0 +1,41 @@
+<div class="section">
+  <div class="container">
+    <h1 kjb-settings-id="{{ 'searched' | settings_id: section: section }}">{{ section.settings.searched }}: &quot;{{ search.terms }}&quot;</h4>
+    <p><span kjb-settings-id="{{ 'showing' | settings_id: section: section }}">{{ section.settings.showing }}</span> {{ search.results.size }} <span kjb-settings-id="{{ 'results' | settings_id: section: section }}">{{ section.settings.results }}:</span></p>
+    {% paginate search.results by 10 %}
+      {% for post in paginate.collection %}
+        <a class="" href="{{ post.url }}">{{ post.title }}</a>
+        <p>{{ post.content | strip_html | truncate: 255 }}</p>
+      {% endfor %}
+      {% if paginate.pages > 1 %}
+        {% include "pagination", simple: true %}
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Search Body",
+    "elements": [
+      {
+        "type": "text",
+        "id": "searched",
+        "label": "Searched Text",
+        "default": "Searched"
+      },
+      {
+        "type": "text",
+        "id": "showing",
+        "label": "Showing Text",
+        "default": "Showing"
+      },
+      {
+        "type": "text",
+        "id": "results",
+        "label": "Results Text",
+        "default": "Results"
+      }
+    ]
+  }
+{% endschema %}
