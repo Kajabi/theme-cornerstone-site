@@ -1,0 +1,33 @@
+<div class="section">
+  <div class="container">
+    <h1 kjb-settings-id="{{ 'title' | settings_id: section: section }}">{{ section.settings.title }}</h1>
+    <p kjb-settings-id="{{ 'text' | settings_id: section: section }}">{{ section.settings.text }}</p>
+    <a href="/" class="btn" kjb-settings-id="{{ 'link' | settings_id: section: section }}">{{ section.settings.link }}</a>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "404",
+    "elements": [
+      {
+        "type": "text",
+        "label": "404 Title",
+        "id": "title",
+        "default": "404"
+      },
+      {
+        "type": "text",
+        "label": "Text",
+        "id": "text",
+        "default": "We are sorry but the page you are looking for cannot be found."
+      },
+      {
+        "type": "text",
+        "label": "Link",
+        "id": "link",
+        "default": "Back To Home"
+      }
+    ]
+  }
+{% endschema %}

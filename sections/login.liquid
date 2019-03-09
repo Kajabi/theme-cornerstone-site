@@ -1,0 +1,66 @@
+<div class="section">
+  <div class="container">
+    <h1 kjb-settings-id="{{ 'login' | settings_id: section: section }}">{{ section.settings.login }}</h1>
+    {% form 'new_member_session', current_site_user %}
+      {% if form.notice %}
+        <div>{{ form.notice }}</div>
+      {% endif %}
+      {% if form.errors.messages['form'] %}
+        <div>{{ form.errors.messages['form'] }}</div>
+      {% endif %}
+      <label for="member_email" kjb-settings-id="{{ 'email' | settings_id: section: section }}">{{ section.settings.email }}</label>
+      <input spellcheck="false" autocorrect="off" autofocus="autofocus" type="text" name="member[email]" id="member_email" value="{{form.email}}" />
+      <label for="member_password" kjb-settings-id="{{ 'password' | settings_id: section: section }}">{{ section.settings.password }}</label>
+      <input type="password" name="member[password]" id="member_password" />
+      <div kjb-settings-id="{{ 'remember_me' | settings_id: section: section }}">
+        <input type="checkbox" value="1" name="member[remember_me]" id="member_remember_me"/> {{ section.settings.remember_me }}
+      </div>
+      <input type="submit" name="commit" value="{{ section.settings.btn }}" kjb-settings-id="{{ 'btn' | settings_id: section: section }}">
+    {% endform %}
+    <a href="/password/new" kjb-settings-id="{{ 'forgot_password' | settings_id: section: section }}">{{ section.settings.forgot_password }}</a>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Login",
+    "elements": [
+      {
+        "type": "text",
+        "label": "Login Text",
+        "id": "login",
+        "default": "Sign in"
+      },
+      {
+        "type": "text",
+        "label": "Email Text",
+        "id": "email",
+        "default": "Email"
+      },
+      {
+        "type": "text",
+        "label": "Password Text",
+        "id": "password",
+        "default": "Password"
+      },
+      {
+        "type": "text",
+        "label": "Remember Me Text",
+        "id": "remember_me",
+        "default": "Remember Me"
+      },
+      {
+        "type": "text",
+        "label": "Forgot Password Text",
+        "id": "forgot_password",
+        "default": "Forgot Password"
+      },
+      {
+        "type": "text",
+        "id": "btn",
+        "label": "Button Text",
+        "default": "Sign In"
+      }
+    ]
+  }
+{% endschema %}
