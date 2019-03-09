@@ -1,0 +1,20 @@
+<div class="section">
+  <div class="container">
+    {{ offer.thank_you_body }}
+    <a href="/" class="btn" kjb-settings-id="{{ 'btn' | settings_id: section: section }}">{{ section.settings.btn }}</a>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Thank You",
+    "elements": [
+      {
+        "type": "text",
+        "label": "Thank You Link",
+        "id": "btn",
+        "default": "Back To Home"
+      }
+    ]
+  }
+{% endschema %}
