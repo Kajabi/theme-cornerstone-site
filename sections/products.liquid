@@ -1,0 +1,50 @@
+<div class="section">
+  <div class="container">
+    {% if section.settings.heading != "" %}
+      <h1 kjb-settings-id="{{ 'heading' | settings_id: section: section }}">{{ section.settings.heading }}</h3>
+    {% endif %}
+    {% if products.size > 0 %}
+      {% paginate products by 6 %}
+        <div class="row">
+          {% for product in paginate.collection %}
+            <div class="col-4">
+              {% if product.thumbnail_url %}
+                <img src="{{ product.thumbnail_url }}"/>
+              {% else %}
+                <img src="{{ "placeholder.png" | asset_url }}"/>
+              {% endif %}
+              <h4>{{ product.title }}</h4>
+              {% if product.description != "" %}
+                <p>{{ product.description | strip_html | truncate: 160 }}</p>
+              {% endif %}
+              <a href="{{ product.url }}" class="btn" id="{{ btnId }}" kjb-settings-id="{{ 'btn' | settings_id: section: section }}">{{ section.settings.btn }}</a>
+            </div>
+          {% endfor %}
+        </div>
+        {% if paginate.pages > 1 %}
+          {% include "pagination" %}
+        {% endif %}
+      {% endpaginate %}
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Products",
+    "elements": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "My Products"
+      },
+      {
+        "type": "text",
+        "id": "btn",
+        "label": "Button Text",
+        "default": "Enter"
+      }
+    ]
+  }
+{% endschema %}

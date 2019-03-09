@@ -1,0 +1,27 @@
+{% if paginate.previous %}
+  <a class="btn" href="{{ paginate.previous.url }}">
+    <
+  </a>
+{% else %}
+  <p class="btn">
+    <
+  </p>
+{% endif %}
+{% unless simple == true %}
+  {% for i in (1..paginate.pages) %}
+    {% if i == paginate.current_page %}
+      <a class="btn" href="?page={{ i }}{% if tags.current %}&amp;tag={{ tags.current }}{% endif %}">{{ i }}</a>
+    {% else %}
+      <a class="btn" href="?page={{ i }}{% if tags.current %}&amp;tag={{ tags.current }}{% endif %}">{{ i }}</a>
+    {% endif %}
+  {% endfor %}
+{% endunless %}
+{% if paginate.next %}
+  <a class="btn" href="{{ paginate.next.url }}">
+    >
+  </a>
+{% else %}
+  <p class="btn">
+    >
+  </p>
+{% endif %}
