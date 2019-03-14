@@ -1,5 +1,5 @@
 <div class="section">
-  <div class="container">
+  <div class="container fluid-video">
     {% paginate blog_posts by 10 %}
       {% for post in paginate.collection %}
         <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
