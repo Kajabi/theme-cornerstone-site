@@ -8,7 +8,7 @@
   <div class="container">
     {% paginate blog_posts by 10 %}
       {% for blog_post in paginate.collection %}
-      <div class="blog_preview">
+      <div class="blog_preview fluid-video">
         <h2><a href="{{ blog_post.url }}">{{ blog_post.title }}</a></h2>
         <div>
           {% if blog_post.tags.size > 0 %}

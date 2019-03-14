@@ -2,7 +2,7 @@
 <div class="section">
   <div class="container">
     <h1>{{ blog_post.title }}</h1>
-    <div>
+    <div class="fluid-video">
       {% if blog_post.tags.size > 0 %}
         {% for tag in blog_post.tags %}
           <a href="{{ current_site.url }}/blog?tag={{ tag | url_encode }}">{{ tag }}</a>
