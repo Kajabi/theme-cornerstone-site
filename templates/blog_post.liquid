@@ -11,7 +11,13 @@
         Uncategorized
       {% endif %}
       <p kjb-settings-id="{{ 'show_date' | settings_id: section: section }}">{{ blog_post.created_at | date: "%b %d, 20%y" }}</p>
-      {{ v | wistia_video: player_color: settings.color_primary, still_url: blog_post.image_url, playerPreference: "html5" }}
+      <div class="video__wrapper">
+        {% if blog_post.video %}
+          {{ blog_post.video | wistia_video: player_color: settings.color_primary, still_url: blog_post.image_url, playerPreference: "html5" }}
+        {% else %}
+          <img src="{{ blog_post.image_url }}" class="img-fluid"/>
+        {% endif %}
+      </div>
       {{ blog_post.content }}
     </div>
   </div>
