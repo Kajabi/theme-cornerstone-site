@@ -16,7 +16,7 @@
         {% assign truncate_at = section.settings.truncate | default: 1000 %}
         {% assign truncate_at_number = truncate_at | times: 1 %}
         <div>{{ post.content | truncate_html: truncate_at_number }}</divs>
-        <a href="{{ blog_post.url }}"><img src="{{ blog_post.image_url }}" class="img-fluid"/></a>
+        <a href="{{ blog_post.url }}"><img src="{{ blog_post.image_url }}"/></a>
         <a class="btn" href="{{ blog_post.url }}" kjb-settings-id="{{ 'read_more' | settings_id: section: section, block: block }}">{{ section.settings.read_more }}</a>
       {% endfor %}
       {% if paginate.pages > 1 %}
