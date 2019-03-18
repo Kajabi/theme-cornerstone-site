@@ -1,22 +1,23 @@
 <div class="section">
   <div class="container fluid-video">
     {% paginate blog_posts by 10 %}
-      {% for post in paginate.collection %}
-        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      {% for blog_post in paginate.collection %}
+        <h2><a href="{{ blog_post.url }}">{{ blog_post.title }}</a></h2>
         <div>
-          {% if post.tags.size > 0 %}
-            {% for tag in post.tags %}
+          {% if blog_post.tags.size > 0 %}
+            {% for tag in blog_post.tags %}
               <a href="{{ current_site.url }}/blog?tag={{ tag | url_encode }}">{{ tag }}</a>
             {% endfor %}
           {% else %}
             Uncategorized
           {% endif %}
         </div>
-        <p kjb-settings-id="{{ 'show_date' | settings_id: section: section }}">{{ post.created_at | date: "%b %d, 20%y" }}</p>
+        <p kjb-settings-id="{{ 'show_date' | settings_id: section: section }}">{{ blog_post.created_at | date: "%b %d, 20%y" }}</p>
         {% assign truncate_at = section.settings.truncate | default: 1000 %}
         {% assign truncate_at_number = truncate_at | times: 1 %}
-        <div>{{ post.content | truncate_html: truncate_at_number }}</div>
-        <a class="btn" href="{{ post.url }}" kjb-settings-id="{{ 'read_more' | settings_id: section: section, block: block }}">{{ section.settings.read_more }}</a>
+        <div>{{ post.content | truncate_html: truncate_at_number }}</divs>
+        <a href="{{ blog_post.url }}"><img src="{{ blog_post.image_url }}"/></a>
+        <a class="btn" href="{{ blog_post.url }}" kjb-settings-id="{{ 'read_more' | settings_id: section: section, block: block }}">{{ section.settings.read_more }}</a>
       {% endfor %}
       {% if paginate.pages > 1 %}
         {% include "pagination" %}
