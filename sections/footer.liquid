@@ -3,7 +3,7 @@
   it clickable in the theme editor with a kjb-settings-id
 -->
 {% if section.settings.show_footer %}
-  <div class="footer">
+  <div class="footer" kjb-settings-id="{{ 'show_footer' | settings_id: section: section }}">
     <div class="container">
       <div class="media align-middle">
         {% if section.settings.show_logo %}
